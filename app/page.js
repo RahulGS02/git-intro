@@ -4,7 +4,7 @@ export default function Home() {
       <div style={styles.card}>
         <h1 style={styles.title}>👋 Welcome!</h1>
         <p style={styles.subtitle}>
-          This is a simple welcome page built with Next.js.
+           welcome back to page built with Next.js.
         </p>
         <a href="https://nextjs.org/docs" style={styles.button}>
           Get Started
