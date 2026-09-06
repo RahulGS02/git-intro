@@ -1,0 +1,15 @@
+name: Build Next.js Project
+description: Build the Next.js project with npm
+
+inputs:
+  node-version:
+    description: Node.js version to use
+    required: false
+    default: '18.x'
+
+runs:
+  using: composite
+  steps:
+    - name: Build the project
+      shell: bash
+      run: npm run build

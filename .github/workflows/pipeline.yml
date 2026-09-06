@@ -3,8 +3,8 @@ name: Build and Deploy
 on:
     workflow_dispatch:
 
-#   push:
-#     branches: [ main, develop ]
+    push:
+      branches: [ master]
   
 jobs:
   build:
@@ -28,8 +28,12 @@ jobs:
       run: npm install
 
     - name: Build project
-      run: npm run build
+      uses: ./.github/actions/build-project
+      with:
+        node-version: ${{ matrix.node-version }}
 
-    - name: Run dev server (optional)
-      run: npm run dev &
-      continue-on-error: true
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+      with:
+        artifact-name: github-pages
+        token: ${{ secrets.GITHUB_TOKEN }}
